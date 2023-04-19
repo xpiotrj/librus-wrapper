@@ -1,0 +1,139 @@
+﻿doctype transitional
+html(lang='pl-PL')
+  head
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/javascripts/chart.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+    script(src='/javascripts/frontend.js')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body
+    div(class='main_options' id='main_options')
+      div.grade_info
+        div(class='cell' style='text-align: right; padding-bottom: 20px; min-width: 90%; border: none;') 
+        div(class='cell' style='text-align: right; padding-bottom: 20px; color: #4f5467; cursor: pointer; border: none;' onclick='CloseMainOptions()') x
+        div.cell Ocena
+        div(class='cell' id='cell_grade') 
+        div.cell Waga
+        div(class='cell' id='cell_multiplier') 
+        div.cell Kategoria
+        div(class='cell' id='cell_category')
+        div.cell Lekcja
+        div(class='cell' id='cell_lesson') 
+        div.cell Nauczyciel
+        div(class='cell' id='cell_teacher') 
+        div.cell Data
+        div(class='cell' id='cell_date') 
+        div.cell Do średniej
+        div(class='cell' id='cell_inAverage') 
+        div.cell Średnia końcoworoczna
+        div(class='cell' id='cell_Average' style='font-weight: 600') 3.75
+      div(id='chart_title', style='width: 100%; text-align: center; margin-top: 20px; font-size: 20px;') Stosunek ocen
+      div
+        canvas#chart
+    div.grid-container
+      div.menu-icon
+        i(class='fas fa-bars header__menu')
+      header(class='header' id='header') #{nameSurname}, #{classes}
+       
+
+      aside.sidenav
+        div.sidenav__close-icon
+          i(class='fas fa-times sidenav__brand-close') 
+        ul.sidenav__list
+          a(href='#header')
+            li(class='sidenav__list-item') Strona główna
+          a(href='#grade_table')
+            li(class='sidenav__list-item') Oceny
+          a(href='#absence')
+            li(class='sidenav__list-item') Frekwencja
+          a(href='#absence_data')
+            li(class='sidenav__list-item') Szczegóły frekwencji
+          a(href='#timetable')
+            li(class='sidenav__list-item') Plan lekcji           
+          li(class='sidenav__list-item') Wyloguj
+      main.main
+        div.main-header
+          div(class='main-header__heading')  Witaj ponownie
+          div(class='main-header__updates') 
+      
+        div.main-overview
+          div.overviewcard
+            div(class='overviewcard__icon__absence' id='last_absence_icon' style='color: white;') #{lastAbsence[2]}
+            div.overviewcard__info
+              div.top Ostatni wpis frekwencji:
+              div.bottom #{lastAbsence[0]}, #{lastAbsence[1]}
+          div.overviewcard
+            div.overviewcard__icon__absence ?
+            div.overviewcard__info 
+              div.top Szczęśliwy numerek:
+              div.bottom 6
+          div.overviewcard
+            div.overviewcard__icon__absence i
+            div.overviewcard__info
+              div.top Najbliższe wydarzenie:
+              div.bottom #{lastAnnon}
+        div.main-cards
+          div.card 
+            table(id='grade_table', style='width:100%')
+              each subject in subjects
+                tr
+                  td(id=subject.average)=subject.name
+                  td.grades_td
+                    each grade in subject.semester[2].grades
+                      span(class='grade_tile', id=(grade.id))= grade.value
+          
+          div(class='card' id='absence')
+              each day in days
+                div.absence_tile
+                  table(style='width:100%;')
+                    tr
+                      td(style='color:black; width: 40%; border: none;')
+                        =day[0]
+                      td(style='color: black; border: none;')
+                        each grade, ind in day[1]
+                          span(class='grade_tile absence_tile_single unselectable', id=grade, onClick='GoToAbsencePage(this.id)')= day[2][ind]
+
+            
+          
+          div(class='card' id='absence_data')
+            each subject in frequency
+              div(class='absence_tile' style='padding-bottom: 8px;')
+                table(style='width:100%;')
+                    tr(class='frequency_tile')
+                      td(style='color:black; width: 70%; border: none;')
+                        =subject[0]
+                      td(style='color: black; border: none; width: 10%;')
+                        =subject[1]
+                      td(style='color: black; border: none; width: 10%;') 
+                        =subject[2]
+                      td(style='color: black; border: none;') 
+
+          div(class='card' id='timetable') 
+            div(class='day' style='height: 15px;') Godzina
+            div(class='day' style='height: 15px;') Poniedziałek
+            div(class='day' style='height: 15px;') Wtorek
+            div(class='day' style='height: 15px;') Środa
+            div(class='day' style='height: 15px;') Czwartek
+            div(class='day' style='height: 15px;') Piątek
+            each hour in timetable
+                div(class='day' style='text-align: left;')
+                  p=hour[0]
+                div.day
+                  p=hour[1]
+                div.day
+                  p=hour[2]
+                div.day
+                  p=hour[3]
+                div.day
+                  p=hour[4]
+                div.day
+                  p=hour[5]        
+           
+                  
+      footer.footer
+        div.footer__copyright test
+        div.footer__signature test234
+      
+
+    

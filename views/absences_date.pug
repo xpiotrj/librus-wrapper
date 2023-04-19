@@ -1,0 +1,13 @@
+html
+  head
+
+    script(src='/javascripts/frontend.js')
+  body
+    table(, style='width:20%', border='1')
+      each day in days
+        tr
+          td=day[0]
+          td
+            each grade, ind in day[1]
+              span(class='grade_tile', id=grade, onClick='GoToAbsencePage(this.id)')= day[2][ind]
+

@@ -1,0 +1,16 @@
+html
+  head
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+    script(src='/javascripts/frontend.js')
+  body
+    table(id='grade_table', style='width:100%', border='1')
+      tr
+        td Przedmiot
+        td Ocena
+      each subject in subjects
+        tr
+          td=subject.name
+          td
+            each grade in subject.semester[2].grades
+              span(class='grade_tile', id=(grade.id), onClick='GoToGradePage(this.id)')= grade.value
