@@ -4,9 +4,7 @@ librus with simplet, better ui
 calcualting frequency
 
 
-
-![1](https://user-images.githubusercontent.com/105516638/233191763-4a69082e-5562-4e8a-ba5a-1fd709decd0c.PNG)
-
-![2](https://user-images.githubusercontent.com/105516638/233191783-df3d0fe5-14a1-4fb5-ad14-0503650edce7.PNG)
-![3](https://user-images.githubusercontent.com/105516638/233191786-08d35087-d18f-4b4e-8b9e-dbddc64ba35a.PNG)
-![4](https://user-images.githubusercontent.com/105516638/233191788-660a144f-febe-4ecc-b34c-dd2822236107.PNG)
+![1](https://user-images.githubusercontent.com/105516638/233192148-11891c8e-acfa-466c-8eec-2e443ee79f63.PNG)
+![2](https://user-images.githubusercontent.com/105516638/233192152-d7e10294-0e5d-4647-97df-4a2b44674d23.PNG)
+![3](https://user-images.githubusercontent.com/105516638/233192154-d2a4c31c-db55-478e-9166-5375e035c0cd.PNG)
+![4](https://user-images.githubusercontent.com/105516638/233192157-f8f54a85-6090-4a95-80cc-e2bd13262177.PNG)
